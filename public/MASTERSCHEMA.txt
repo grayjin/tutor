@@ -1,0 +1,74 @@
+CREATE TABLE LOCATIONS(
+  LOCID        BIGSERIAL PRIMARY KEY   NOT NULL,
+  COUNTRY      VARCHAR(100)            NOT NULL,
+  PROVINCE     VARCHAR(100)            NOT NULL,
+  CITY         VARCHAR(100)            NOT NULL,
+);
+
+CREATE TABLE LANGUAGES(
+  LANGID       BIGSERIAL PRIMARY KEY   NOT NULL,
+  LANGUAGE     VARCHAR(50)             NOT NULL
+);
+
+CREATE TABLE SCHOOLS(
+  SCHOOLID     BIGSERIAL PRIMARY KEY   NOT NULL,
+  NAME         VARCHAR(100)            NOT NULL,
+  LOCID        BIGINT                  references LOCATION(LOCID)
+);
+
+CREATE TABLE COURSES(
+  COURSEID     BIGSERIAL PRIMARY KEY   NOT NULL,
+  SCHOOLID     BIGINT                  references SCHOOLS(SCHOOLID),
+  FACULTY      VARCHAR(50)             NOT NULL,
+  COURSECODE   VARCHAR(7)              NOT NULL,
+  COURSENAME   VARCHAR(100)            NOT NULL
+);
+
+CREATE TABLE STUDENTS(
+  STUDENTID    BIGSERIAL PRIMARY KEY   NOT NULL,
+  NAME         VARCHAR(50)             NOT NULL,
+  LOCID        BIGINT                  references LOCATION(LOCID)
+);
+
+CREATE TABLE TUTORS(
+  TUTORID      BIGSERIAL PRIMARY KEY   NOT NULL,
+  NAME         VARCHAR(50)             NOT NULL,
+  LOCID        BIGINT                  references LOCATION(LOCID)
+);
+
+CREATE TABLE LANGJUNCTION(
+  RECID        BIGSERIAL PRIMARY KEY   NOT NULL,
+  TUTORID      BIGINT                  references TUTORS(TUTORID),
+  LANGID       BIGINT                  references LANGUAGES(LANGID)
+);
+
+CREATE TABLE COURSEJUNCTION(
+  RECID        BIGSERIAL PRIMARY KEY   NOT NULL,
+  TUTORID      BIGINT                  references TUTORS(TUTORID),
+  COURSEID     BIGINT                  references COURSES(COURSEID)
+);
+
+CREATE TABLE RATINGS(
+  TRANSID      BIGSERIAL PRIMARY KEY   NOT NULL,
+  STUDENTID    BIGINT                  references STUDENTS(STUDENTID),
+  TUTORID      BIGINT                  references TUTORS(TUTORID),
+  COURSEID     BIGINT                  references COURSES(COURSEID),
+  RATING       TINYINT                 NOT NULL,
+);
+
+CREATE TABLE TIMESLOTS(
+  SCHEDULEID   BIGSERIAL PRIMARY KEY   NOT NULL,
+  TUTORID      BIGINT                  references TUTORS(TUTORID),
+  DATE         DATE                    NOT NULL,
+  STARTTIME    TIMETZ                  NOT NULL,
+  ENDTIME      TIMETZ                  NOT NULL
+);
+
+CREATE TABLE APPOINTMENTS(
+  APPTID       BIGSERIAL PRIMARY KEY   NOT NULL,
+  STUDENTID    BIGINT                  references STUDENTS(STUDENTID),
+  COURSEID     BIGINT                  references COURSES(COURSEID),
+  SCHEDULEID   BIGINT                  references DATES(DATEID),
+  COMMENTS     VARCHAR(256)            ,
+);
+
