@@ -1,0 +1,83 @@
+--QUERY TUTOR PROFILE
+
+SELECT  tut.TUTORID
+        ,tut.NAME
+        ,loc.COUNTRY
+        ,loc.PROVINCE
+        ,loc.CITY
+        ,array_agg(lang.LANGUAGE)    AS LANGUAGES
+        ,array_agg(cor.COURSEID)     AS COURSEID
+        ,array_agg(cor.COURSECODE)   AS COURSECODE
+        ,array_agg(cor.COURSENAME)   AS COURSENAME
+        ,avg(r.RATING)
+
+FROM
+  TUTORS tut
+    LEFT OUTER JOIN LOCATIONS loc
+      ON tut.LOCID = loc.LOCID
+    LEFT OUTER JOIN LANGJUNCTION langj
+      ON langj.TUTORID = tut.TUTORID
+    LEFT OUTER JOIN LANGUAGES lang
+      ON lanj.LANGID = lang.LANGID
+    LEFT OUTER JOIN COURSEJUNCTION corj
+      ON corj.TUTORID = tut.TUTORID
+    LEFT OUTER JOIN COURSES cor
+      ON cor.COURSEID = corj.COURSEID
+    LEFT OUTER JOIN TUTORRATINGS r
+      ON tut.TUTORID = r.TUTORID
+WHERE 1=1
+      AND @TUTORREQ = tut.TUTORID
+
+
+--QUERY STUDENT PROFILE
+
+SELECT  stu.TUTORID
+        ,stu.NAME
+        ,loc.COUNTRY
+        ,loc.PROVINCE
+        ,loc.CITY
+        ,array_agg(lang.LANGUAGE)    AS LANGUAGES
+        ,avg(r.RATING)
+
+FROM
+  STUDENTS stu
+    LEFT OUTER JOIN LOCATIONS loc
+      ON stu.LOCID = loc.LOCID
+    LEFT OUTER JOIN LANGJUNCTION langj
+      ON langj.TUTORID = tut.TUTORID
+    LEFT OUTER JOIN LANGUAGES lang
+      ON lanj.LANGID = lang.LANGID
+    LEFT OUTER JOIN STUDENTRATINGS r
+      ON stu.STUDENTID = r.STUDENTID
+WHERE
+  @STUDENTREQ = stu.STUDENTID
+
+
+--QUERY AVAILIBILITY
+
+SELECT  time.SLOTID
+        ,time.TUTORID
+        ,tut.TUTORNAME
+        ,tut.TUTORNAME
+        ,time.DATE
+        ,time.STARTTIME
+        ,avg(r.RATING)
+        ,CASE WHEN appts.SLOTID = NULL THEN "AVAILABLE"
+        ELSE "UNAVAILABLE" AS STATUS
+FROM
+  TIMESLOT time
+    LEFT OUTER JOIN TUTORS tut
+      on tut.TUTORID = time.TUTORID
+    LEFT OUTER JOIN TUTORRATINGS r
+      ON time.TUTORID = r.TUTORID
+    LEFT OUTER JOIN APPOINTMENTS appts
+      ON time.SLOTID = appts.SLOTID
+    INNER JOIN COURSEJUNCTION corj
+      ON @COURSEID = corj.COURSEID
+         AND tut.TUTORID = corj.COURSEID
+WHERE 1=1
+      AND @STUDENTLOCID = tut.LOCID
+      AND time.DATE BETWEEN current_date AND current_date + interval '7' day
+
+
+

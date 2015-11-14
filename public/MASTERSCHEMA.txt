@@ -19,7 +19,7 @@ CREATE TABLE SCHOOLS(
 CREATE TABLE COURSES(
   COURSEID     BIGSERIAL PRIMARY KEY   NOT NULL,
   SCHOOLID     BIGINT                  references SCHOOLS(SCHOOLID),
-  FACULTY      VARCHAR(50)             NOT NULL,
+  FACULTY      VARCHAR(50)             ,
   COURSECODE   VARCHAR(7)              NOT NULL,
   COURSENAME   VARCHAR(100)            NOT NULL
 );
@@ -48,16 +48,23 @@ CREATE TABLE COURSEJUNCTION(
   COURSEID     BIGINT                  references COURSES(COURSEID)
 );
 
-CREATE TABLE RATINGS(
+CREATE TABLE TUTORRATINGS(
   TRANSID      BIGSERIAL PRIMARY KEY   NOT NULL,
   STUDENTID    BIGINT                  references STUDENTS(STUDENTID),
   TUTORID      BIGINT                  references TUTORS(TUTORID),
   COURSEID     BIGINT                  references COURSES(COURSEID),
-  RATING       TINYINT                 NOT NULL,
+  RATING       TINYINT                 NOT NULL
+);
+
+CREATE TABLE STUDENTRATINGS(
+  TRANSID      BIGSERIAL PRIMARY KEY   NOT NULL,
+  TUTORID      BIGINT                  references TUTORS(TUTORID),
+  STUDENTID    BIGINT                  references STUDENTS(STUDENTID),
+  RATING       TINYINT                 NOT NULL
 );
 
 CREATE TABLE TIMESLOTS(
-  SCHEDULEID   BIGSERIAL PRIMARY KEY   NOT NULL,
+  SLOTID       BIGSERIAL PRIMARY KEY   NOT NULL,
   TUTORID      BIGINT                  references TUTORS(TUTORID),
   DATE         DATE                    NOT NULL,
   STARTTIME    TIMETZ                  NOT NULL,
@@ -68,7 +75,7 @@ CREATE TABLE APPOINTMENTS(
   APPTID       BIGSERIAL PRIMARY KEY   NOT NULL,
   STUDENTID    BIGINT                  references STUDENTS(STUDENTID),
   COURSEID     BIGINT                  references COURSES(COURSEID),
-  SCHEDULEID   BIGINT                  references DATES(DATEID),
+  SLOTID       BIGINT                  references TIMESLOTS(SLOTID),
   COMMENTS     VARCHAR(256)            ,
 );
 
