@@ -1,0 +1,52 @@
+html,
+body{
+  padding:0;
+  margin:0;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.wrapper{
+	margin-top:70px;
+}
+
+/************* navbar *******************/
+
+.navbar-brand{
+	margin-top: 10px;
+	font-family:'Pacifico', Helvetica;
+	font-size: 30px;
+}
+
+li a{
+	color:white;
+}
+
+.navbar-nav {
+	height:70px;
+	padding-left: 10%;
+}
+
+.navbar-nav > li >a{
+	height:70px;
+	padding-top: 25px;
+}
+
+.navbar-nav > li > a:hover, 
+.navbar-nav > li > a:focus {
+    background-color: #267bb7;
+    color:white;
+}
+
+.active {
+	background-color: #267bb7; 
+}
+
+.container-fluid{
+	background-color: #268dd5;
+}
