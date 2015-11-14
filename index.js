@@ -12,11 +12,6 @@ app.all('/*', function(req, res, next) {
     res.sendFile('/public/index.html', { root: __dirname });
 });
 
-app.all('/m/', function(req, res, next) {
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('/public/index.html', { root: __dirname });
-});
-
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
