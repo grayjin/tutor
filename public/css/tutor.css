@@ -1,3 +1,13 @@
+.class-select{
+	display:inline-block;
+}
+
+.class-select td,
+.class-select th{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 .scheduler {
 	display:inline-block;
 }

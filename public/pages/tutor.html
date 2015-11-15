@@ -1,16 +1,42 @@
+<div class="content-wrapper">
 <h1>Be a tutor!</h1>
 
+<form ng-submit="submit()" method = "post" action = "">
+	<div>
+    <table class="class-select">
+        <tr>
+            <th>Description</th>
+            <th>Course Code</th>
+            <th>Remove Course</th>
+        </tr>
+        <tr></tr>
+        <tr ng:repeat="item in subject.items">
+            <td>
+                <input type="text" name:"subject" </input>
+            </td>
+            <td>
+            	<input type="text" name:"course_code"</input>
+            </td>
+            <td>[<a href ng:click="removeItem($index)">X</a>]</td>
+        </tr>
+        <tr>
+            <td><a href ng:click="addItem()" class="btn btn-small">add Course</a>
 
+            </td>
+        </tr>
+    </table>
+	</div>
+<div>
 <table border="1" class="scheduler" ng-init="initializeList()">
 	<tr>
-		<td>Time</td>
-		<td>Sunday</td>
-		<td>Monday</td>
-		<td>Tuesday</td>
-		<td>Wednesday</td>
-		<td>Thursday</td>
-		<td>Friday</td>
-		<td>Saturday</td>
+		<th>Time</th>
+		<th>Sunday</th>
+		<th>Monday</th>
+		<th>Tuesday</th>
+		<th>Wednesday</th>
+		<th>Thursday</th>
+		<th>Friday</th>
+		<th>Saturday</th>
 	</tr>
 
 	<tr ng-repeat="day in scheduleList track by $index" ng-init="dayVal = $index;">
@@ -19,5 +45,9 @@
 		</td>
 	</tr>
 
-	<button class="btn" ng-click="submitSchedule()">Submit</button>
+	 
 </table>
+</div>
+ <input type="submit" id="submit" class="btn" value="Submit" ng-click="submitSchedule()"/>
+</form>
+</div>

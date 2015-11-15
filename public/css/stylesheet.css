@@ -13,8 +13,30 @@ html {
 }
 
 .wrapper{
+	padding-left: 10%;
 	margin-top:70px;
 	text-align: center;
+	padding-right: 10%;
+}
+
+.wrapper {
+	min-height: 100vh;
+	background-image: url('../images/bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-attachment: fixed;
+}
+
+.content-wrapper{
+	padding-left:5%;
+	padding-right:5%;
+	padding-top: 20px;
+	background-color: #F9F9F9;
+}
+
+.wrapper h1 {
+	text-align: left;
 }
 
 /************* navbar *******************/
