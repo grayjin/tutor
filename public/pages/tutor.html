@@ -1,1 +1,23 @@
-<h1>tutor</h1>
+<h1>Be a tutor!</h1>
+
+
+<table border="1" class="scheduler" ng-init="initializeList()">
+	<tr>
+		<td>Time</td>
+		<td>Sunday</td>
+		<td>Monday</td>
+		<td>Tuesday</td>
+		<td>Wednesday</td>
+		<td>Thursday</td>
+		<td>Friday</td>
+		<td>Saturday</td>
+	</tr>
+
+	<tr ng-repeat="day in scheduleList track by $index" ng-init="dayVal = $index;">
+		<td ng-repeat="time in day track by $index" ng-class="getScheduleType(time)" ng-click="toggleSection(dayVal, $index)">
+			{{time}}
+		</td>
+	</tr>
+
+	<button class="btn" ng-click="submitSchedule()">Submit</button>
+</table>
