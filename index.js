@@ -14,7 +14,12 @@ app.all('/*', function(req, res, next) {
     res.sendFile('/public/index.html', { root: __dirname });
 });
 
+app.post('/', function(req,res){
+	dbOperations.registerUpdate(req,res);
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
 
