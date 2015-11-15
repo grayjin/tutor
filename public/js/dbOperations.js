@@ -15,6 +15,10 @@ exports.register = function(req,res) {
             }
         });
     
+    query.on("end", function(){
+    client.end();
+    });
+    
     
 };
 
@@ -31,6 +35,10 @@ exports.registerStudent = function(req,res){
                     console.log(err);
         }});    
        
+      query.on("end", function(){
+    client.end();
+    });
+    
 
 
 };
@@ -49,7 +57,10 @@ exports.registerTutor = function(req,res){
                     res.send(JSON.stringify(err));
                     console.log(err);
         }});    
-      
+        query.on("end", function(){
+    client.end();
+    });
+    
     
 };
 
