@@ -9,22 +9,28 @@
 	<base href="/"></base>
 </head>
 
-<body>
+<body ng-controller="loginCtrl">
 	<nav class="navbar navbar-fixed-top my-nav">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/"><span style="color:white">Tutor</span><span style="color:#ff8400">Us</span></a>
 			</div>
 			<div>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="/">Home</a></li>
+				<ul class="nav navbar-nav navbar-right" ng-hide="loggedIn">
+					<li><a href="/">Home</a></li>
+					<li><a href="" ng-click="login()">Login</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right" ng-show="loggedIn">
+					<li><a href="/">Home</a></li>
 					<li><a href="/student">Student</a></li> 
 					<li><a href="/tutor">Tutor</a></li> 
 					<li><a href="/profile">Profile</a></li>
+					<li><a href="" ng-click="logout()" value="Log out">Logout</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
+
 
 	<!--Main page --> 
 	<div class="wrapper">
@@ -55,6 +61,7 @@
 	<script type="text/javascript" src="js/student.js"></script>
 	<script type="text/javascript" src="js/tutor.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript"></script>
 </body>
 
 </html>
