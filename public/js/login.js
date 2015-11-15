@@ -27,7 +27,7 @@
             var id = hashCode(newid);    
             var name = auth.profile.name;   
               $http({method: 'POST', url: '/?id='+id+'&name='+name}).success(function(data,status){
-                alert('Record added');
+                
                   $scope.dataset = data;});
                 
                 

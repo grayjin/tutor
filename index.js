@@ -22,6 +22,7 @@ app.listen(app.get('port'), function() {
 
     app.post('/', function(req,res){
         db.registerUpdate(req,res);
+        alert('This works too!');
     };
              
   
