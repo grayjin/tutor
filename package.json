@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-moment": "^0.10.3",
     "angular-ui-calendar": "latest",
     "express": "^4.13.3",
     "moment": "^2.10.6",

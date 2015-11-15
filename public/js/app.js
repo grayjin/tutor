@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module("tutorApp", ['ngRoute', 'auth0', 'angular-storage', 'angular-jwt','ui.calendar']);
+	var app = angular.module("tutorApp", ['ngRoute', 'auth0', 'angular-storage', 'angular-jwt','ui.calendar','angularMoment']);
 
 
     

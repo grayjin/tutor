@@ -1,9 +1,10 @@
 (function() {
-	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
-	function($scope) {
+	angular.module('tutorApp').controller('tutorCtrl', ['$scope', 'moment',
+	function($scope, moment) {
 		var vm = this;
 		
 		$scope.scheduleList = [];
+		$scope.dateArray = [];
 
 		$scope.subject = {
         items: [{
@@ -45,6 +46,14 @@
 
 		$scope.initializeList = function() {
 			console.log("initializeList");
+
+			$scope.dateArray.push("Time");
+			
+			for (var i = 0; i < 7; i++){
+				var date = moment().add(i, 'days');
+				$scope.dateArray.push(date.format("l"));
+			}
+
 			for(var i = 0; i < 24; i++) {
 				var dayArray = [];
 
@@ -81,51 +90,7 @@
 				}
 			}
 		}
-
-
-        $scope.eventClick = function(event){
-        $scope.$apply(function(){
-          $scope.alertMessage = (event.title + ' is clicked');
-        });
-    };
-
-      $scope.renderView = function(view){
-        var date = new Date(view.calendar.getDate());
-        $scope.currentDate = date.toDateString();
-        $scope.$apply(function(){
-          $scope.alertMessage = ('Page render with date '+ $scope.currentDate);
-        });
-    };
-
-        $scope.eventSources = [];
-       $scope.uiConfig = {
-          calendar:{
-            height: "100%",
-            editable: true,
-            header:{
-              left: 'month basicWeek basicDay agendaWeek agendaDay',
-              center: 'title',
-              right: 'today prev,next'
-            },
-            dayClick: $scope.alertEventOnClick,
-            eventDrop: $scope.alertOnDrop,
-            eventResize: $scope.alertOnResize,
-            viewRender: $scope.viewRender
-          }
-    };
-
-        $scope.data = {
-            repeatSelect: null,
-            availableOptions: [
-                {id: '1', name: 'University of Waterloo'},
-                {id: '2', name: 'University of Toronto'},
-                {id: '3', name: 'Wilfred Laurier University'}
-        ],
-    }
         
-        
-    
-
 
 	}]);
 

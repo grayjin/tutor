@@ -12,6 +12,7 @@
 }
 
 .scheduler {
+	margin-top: 20px;
 	display:inline-block;
 }
 
@@ -23,7 +24,7 @@
 }
 
 .selectedBlock{
-	background-color: #268dd5;
+	background-color: #268dd5 !important;
 	width:80px;
 }
 
