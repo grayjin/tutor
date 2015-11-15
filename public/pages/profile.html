@@ -14,7 +14,7 @@
 	<form class="profile-wrapper" ng-show="getEditMode()" ng-submit="submit()">
 	<div>
 	<h2 style="margin-top:0">{{auth.profile.name}}</h2>
-		<h4>School: 
+		<h4>School:
 		<select name="input" ng-model="profileLocation" required>
 			<option ng-repeat="option in availableOptions" value="{{$index}}">{{option}}</option>
     	</select></h4>
@@ -27,4 +27,10 @@
   		<input class="btn pull-right" type="submit" id="submit" value="Submit"/>
 	</form>
 	</div>
+    <div id="wrapper" style="float:left;margin-top:125px;position:absolute;">
+        <button class="btn pull-left" ng-click="viewToggle()" style="text-color:white">{{switch}}</button>
+        <div class="calendar" style="margin-left:auto;margin-right:auto;height:100%;">
+            {{ staticCalendar }}
+        </div>
+    </div>
 </div>
