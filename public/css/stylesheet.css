@@ -3,6 +3,7 @@ body{
   padding:0;
   margin:0;
   background-color: #F9F9F9;
+  font-family: "Helvetica";
 }
 
 html {
@@ -20,7 +21,7 @@ html {
 }
 
 .wrapper {
-	min-height: 100vh;
+	min-height: 90vh;
 	background-image: url('../images/bg.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -29,6 +30,7 @@ html {
 }
 
 .content-wrapper{
+	min-height: 90vh;
 	padding-left:5%;
 	padding-right:5%;
 	padding-top: 20px;
@@ -37,6 +39,16 @@ html {
 
 .wrapper h1 {
 	text-align: left;
+}
+
+p{
+	text-align: justify;
+}
+
+.btn{
+	color:white;
+	background-color: #ff8400;
+	border-radius: 0;
 }
 
 /************* navbar *******************/
