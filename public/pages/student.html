@@ -1,6 +1,6 @@
 <div>
 	<h2> Course Selection </h2>
-	<form ng-submit="submit()">
+	<form ng-submit="submit()" method = "post" action = "">
     <table class="table">
         <tr>
             <th>Description</th>
@@ -10,10 +10,10 @@
         <tr></tr>
         <tr ng:repeat="item in subject.items">
             <td>
-                <input ng-model="text" </input>
+                <input type="text" name:"subject" </input>
             </td>
             <td>
-            	<input ng=model="text" </input>
+            	<input type="text" name:"course_code"</input>
             </td>
             <td>[<a href ng:click="removeItem($index)">X</a>]</td>
         </tr>
@@ -22,8 +22,9 @@
 
             </td>
         </tr>
-
     </table>
 	  <input type="submit" id="submit" value="Submit" />
 	</form>
 </div>
+
+<CourseSelection></CourseSelection>
