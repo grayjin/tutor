@@ -11,11 +11,6 @@
 	  // This hooks al auth events to check everything as soon as the app starts
 	  auth.hookEvents();
 	});
-
-    
-    
-	
-
 	app.run(function($rootScope, auth, store, jwtHelper, $location) {
 	  // This events gets triggered on refresh or URL change
 	  $rootScope.$on('$locationChangeStart', function() {

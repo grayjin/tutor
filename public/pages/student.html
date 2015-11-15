@@ -1,16 +1,20 @@
 <div>
 	<h2> Course Selection </h2>
 	<form ng-submit="submit()" method = "post" action = "">
-    <table class="table">
+    <table style="width:90%" class="class-select" cellspacing = "10">
         <tr>
             <th>Description</th>
+            <th>School</th>
             <th>Course Code</th>
             <th>Remove Course</th>
         </tr>
         <tr></tr>
-        <tr ng:repeat="item in subject.items">
+        <tr ng-repeat="item in subject.items">
             <td>
                 <input type="text" name:"subject" </input>
+            </td>
+            <td>
+                <select ng-model="item.schools" ng-options="p.name for p in schools"></select>
             </td>
             <td>
             	<input type="text" name:"course_code"</input>
@@ -23,8 +27,37 @@
             </td>
         </tr>
     </table>
-	  <input type="submit" id="submit" value="Submit" />
+	  <input type="submit" class="btn submit" id="submit" value="Submit" />
 	</form>
 </div>
+<div>
+    <h3>Tutor Matches</h3>
+    <form ng-submit="submit()" method = "post" action = "">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Tutor Name</th>
+            <th>Timing</th>
+        </tr>
+        <tr ng-repeat="item in tutorList.name">
+            <td>
+                ng-model="item.tutorList" ng-options="p.id for p in tutorList"
+            </td>
+        </tr>
+        <tr>
+            <td>
+               ng-model="item.tutorList" ng-options="p.name for p in tutorList"
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ng-model="item.tutorList" ng-options="p.timings for p in tutorList"
+            </td>
+        </tr>
+    </table>
+        <input type = "submit" class = "btn submit" id="submit" value="Submit"
+    </form>
+</div>
 
-<CourseSelection></CourseSelection>
+
+
