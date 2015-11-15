@@ -2,31 +2,29 @@
 	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
 	function($scope) {
 		var vm = this;
-		//just testing something
-		$scope.tutorLists = {
+
+		$scope.scheduleList = [];
+
+		$scope.subject = {
         items: [{
             qty: 2,
-            cost: 0
-        }]
-    	};
-		$scope.scheduleList = [];
-		
-		//dummy values
-		$scope.tutorList = {{
-        	name: 'Bill',
-        	timings: {(2,3),(3,4),(5,6)},
-        	id: "123123"
-        },
-        {
-        	name:'Monty',
-        	timings: {(1,2),(2,3),(3,4)},
-        	id: "1223423"
-        },
-        {
-        	name:'Python',
-        	timings: {6,7),(7,8),(9,10)},
-        	id: "2342343425"
-    	}};
+            course_code: ""
+        }]};
+        
+	    $scope.submit = function() {
+	        if ($scope.text) {
+	          $scope.table.push(this.text);
+	          $scope.text = '';
+	        }
+	    };
+	    $scope.addItem = function () {
+	        $scope.subject.items.push({
+	            qty: 1,
+	        });
+	    },
+	    $scope.removeItem = function (index) {
+	        $scope.subject.items.splice(index, 1);
+	    }
 
 		$scope.initializeList = function() {
 			console.log("initializeList");
