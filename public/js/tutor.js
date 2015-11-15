@@ -1,6 +1,6 @@
 (function() {
-	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
-	function($scope, uiCalendarConfig) {
+	angular.module('tutorApp').controller('tutorCtrl', ['$scope','$http',
+	function($scope, $http, uiCalendarConfig) {
 		var vm = this;
 		
 		$scope.scheduleList = [];
@@ -10,7 +10,7 @@
             qty: 2,
             course_code: ""
         }]};
-        
+
 	    $scope.submit = function() {
 	        if ($scope.text) {
 	          $scope.table.push(this.text);
@@ -64,11 +64,26 @@
 				}
 			}
 		}
-        
+<<<<<<< HEAD
+
+        $scope.eventClick = function(event){
+        $scope.$apply(function(){
+          $scope.alertMessage = (event.title + ' is clicked');
+        });
+    };
+
+      $scope.renderView = function(view){
+        var date = new Date(view.calendar.getDate());
+        $scope.currentDate = date.toDateString();
+        $scope.$apply(function(){
+          $scope.alertMessage = ('Page render with date '+ $scope.currentDate);
+        });
+    };
+
         $scope.eventSources = [];
        $scope.uiConfig = {
           calendar:{
-            height: 950,
+            height: "100%",
             editable: true,
             header:{
               left: 'month basicWeek basicDay agendaWeek agendaDay',
@@ -77,10 +92,15 @@
             },
             dayClick: $scope.alertEventOnClick,
             eventDrop: $scope.alertOnDrop,
-            eventResize: $scope.alertOnResize
+            eventResize: $scope.alertOnResize,
+            viewRender: $scope.viewRender
           }
     };
+
+=======
+        
       
+>>>>>>> 7ee8bc53461ec3add03f67a1e999d9da5e8e34cc
         $scope.data = {
             repeatSelect: null,
             availableOptions: [
@@ -88,10 +108,13 @@
                 {id: '2', name: 'University of Toronto'},
                 {id: '3', name: 'Wilfred Laurier University'}
         ],
-    };
+    }
+        
+        
+    
 
 	}]);
-    
-    
+
+
 
 })();

@@ -61,5 +61,17 @@
 			$locationProvider.html5Mode(true);
 		}]);
 
+	app.controller("mainCtrl", ['$scope', '$location', 
+	function($scope, $location){
+		$scope.getCurrentPage = function(page){
+			var path = $location.path();
+			if (path === "/") {
+				path = 'home';
+			}
+			path = path.replace('/','');
+
+			return path === page;
+		}
+	}]);
 
 })();
