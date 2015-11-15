@@ -1,8 +1,7 @@
 (function() {
 	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
-	function($scope) {
+	function($scope, uiCalendarConfig) {
 		var vm = this;
-
 		$scope.scheduleList = [];
 
 		$scope.subject = {
@@ -64,6 +63,22 @@
 				}
 			}
 		}
+        
+        $scope.eventSources = [];
+       $scope.uiConfig = {
+          calendar:{
+            height: 950,
+            editable: true,
+            header:{
+              left: 'month basicWeek basicDay agendaWeek agendaDay',
+              center: 'title',
+              right: 'today prev,next'
+            },
+            dayClick: $scope.alertEventOnClick,
+            eventDrop: $scope.alertOnDrop,
+            eventResize: $scope.alertOnResize
+          }
+    };
       
         $scope.data = {
             repeatSelect: null,
@@ -75,5 +90,7 @@
     };
 
 	}]);
+    
+    
 
 })();

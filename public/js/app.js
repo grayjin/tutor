@@ -1,6 +1,8 @@
 (function() {
-	var app = angular.module("tutorApp", ['ngRoute', 'auth0', 'angular-storage', 'angular-jwt']);
+	var app = angular.module("tutorApp", ['ngRoute', 'auth0', 'angular-storage', 'angular-jwt','ui.calendar']);
 
+
+    
 	app.config(function (authProvider) {
 		authProvider.init({
 			domain: 'app43881343.auth0.com',
