@@ -12,6 +12,8 @@
 	  auth.hookEvents();
 	});
 
+    
+    
 	
 
 	app.run(function($rootScope, auth, store, jwtHelper, $location) {
