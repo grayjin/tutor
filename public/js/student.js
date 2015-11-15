@@ -7,6 +7,22 @@
             course_code: ""
         }]
     };
+    $scope.schools = 
+    [{
+        name: 'University of Waterloo',
+    },
+    {
+        name: 'University of Toronto',
+    }, 
+    {
+        name: 'Wilfred Laurier University',
+    },
+    {
+        name: 'Ryerson University',
+    },
+    {
+        name: 'University of Calgary',
+    }];
     $scope.submit = function() {
         if ($scope.text) {
           $scope.table.push(this.text);
