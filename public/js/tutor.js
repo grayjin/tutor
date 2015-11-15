@@ -64,6 +64,15 @@
 				}
 			}
 		}
+      
+        $scope.data = {
+            repeatSelect: null,
+            availableOptions: [
+                {id: '1', name: 'University of Waterloo'},
+                {id: '2', name: 'University of Toronto'},
+                {id: '3', name: 'Wilfred Laurier University'}
+        ],
+    };
 
 	}]);
 

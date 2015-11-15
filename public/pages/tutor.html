@@ -27,6 +27,14 @@
     </table>
 	</div>
 <div>
+<div style="text-align:left; padding: 10px;padding-bottom: 20px;margin-left:30px;">
+<label for="schoolSelect">School </label><br>
+<select name="schoolSelect" id="schoolSelect" ng-model="data.schoolSelect">
+      <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+</select>
+</div>
+
+
 <table border="1" class="scheduler" ng-init="initializeList()">
 	<tr>
 		<th>Time</th>
