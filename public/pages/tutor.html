@@ -2,12 +2,12 @@
     <h1>Be a tutor!</h1>
     <div>
        <h2> Course Selection </h2>
-       <form style="tutor-form" class="form-wrapper" ng-submit="submit()" method = "post" action = "">
-           <h4>School : <select ng-model="item.schools" ng-options="p.name for p in schools" required></select> </h4>
+       <form class="form-wrapper" ng-submit="submit()" method = "post" action = "">
+           <h4>School: <select ng-model="item.schools" ng-options="p.name for p in schools" required></select> </h4>
 
            <table style="width:100%" class="class-select">
             <tr>
-                <th>Description</th>
+                <th>Course Name</th>
                 <th>Course Code</th>
                 <th>Remove Course</th>
             </tr>
