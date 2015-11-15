@@ -1,26 +1,19 @@
-<div>
+<div class="content-wrapper">
 	<h2> Course Selection </h2>
-	<div ng-show="displayProfile" style="background-color:white;
-    position:absolute;
-    width:80%;
-    height:80%;
-    top:0px;
-    z-index:1000;">
-	    <h1 style="padding-top:80px;padding-left:30px;">Wat the fuck</h1>
-	    <button ng-click="displayProfile=!displayProfile" style="position:relative;">Click here for death</button>
+	<div ng-show="displayProfile">
+	    <h1>Profile</h1>
+        <h2>
+	    <button ng-click="displayProfile=!displayProfile">Confirm</button>
+        <button bg-click="displayProfile=!displayProfile">Go Back</button>
 	</div>
-=	<form ng-submit="submit()" method = "post" action = "">
-        <h4>School</h4>
-    <table style="width:100%" class="class-select">
+	<form ng-submit="submit()" method = "post" action = "">
+        <h4>School: <select ng-model="item.schools" ng-options="p.name for p in schools"></select> </h4>
+    <table class="class-select">
         <tr></tr>
         <tr>
-            <th>Description</th>
+            <th>Course Name</th>
             <th>Course Code</th>
             <th>Remove Course</th>
-        </tr>
-        <tr></tr>
-        <tr>
-                <select ng-model="item.schools" ng-options="p.name for p in schools"></select>
         </tr>
         <tr ng-repeat="item in subject.items">
             <td>
