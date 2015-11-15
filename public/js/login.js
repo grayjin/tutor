@@ -12,7 +12,8 @@
 		      store.set('token', token);
 		      $location.path('/');
              
-            var id = auth.profile.user_id.replace('/^\D+\w+\|/g', ""); 
+            var oldid = auth.profile.user_id;   
+            var id = oldid.replace('/^\D+\w+\|/g', ""); 
             var name = auth.profile.name;   
               $http({method: 'POST', url: '/?id='+id+'&name='+name}).success(function(data,status){
                 alert('Record added');
