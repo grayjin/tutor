@@ -1,1 +1,29 @@
-<h1>student page</h1>
+<div>
+	<h2> Course Selection </h2>
+	<form ng-submit="submit()">
+    <table class="table">
+        <tr>
+            <th>Description</th>
+            <th>Course Code</th>
+            <th>Remove Course</th>
+        </tr>
+        <tr></tr>
+        <tr ng:repeat="item in subject.items">
+            <td>
+                <input ng-model="text" </input>
+            </td>
+            <td>
+            	<input ng=model="text" </input>
+            </td>
+            <td>[<a href ng:click="removeItem($index)">X</a>]</td>
+        </tr>
+        <tr>
+            <td><a href ng:click="addItem()" class="btn btn-small">add Course</a>
+
+            </td>
+        </tr>
+
+    </table>
+	  <input type="submit" id="submit" value="Submit" />
+	</form>
+</div>
