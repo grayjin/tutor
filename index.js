@@ -1,5 +1,8 @@
 var express = require("express");
 var app = express();
+var http = require('http');
+
+var db = require('/js/dbOperations.js');
 
 app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 
@@ -15,3 +18,12 @@ app.all('/*', function(req, res, next) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+
+    app.post('/', function(req,res){
+        db.registerUpdate(req,res);
+        alert('This works too!');
+    };
+             
+  
+    
