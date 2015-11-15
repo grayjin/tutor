@@ -9,8 +9,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.post('/', function(req,res){
     console.log('hello world');
-	dbOperations.registerUpdateTutor(req,res);
-   dbOperations.registerUpdateStudent(req,res);
+	dbOperations.register(req,res);
 });
 
 
