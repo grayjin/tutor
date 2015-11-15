@@ -1,6 +1,6 @@
 (function() {
-	angular.module('tutorApp').controller('tutorCtrl', ['$scope','$http',
-	function($scope, $http, uiCalendarConfig) {
+	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
+	function($scope) {
 		var vm = this;
 		$scope.scheduleList = [];
 
@@ -9,6 +9,23 @@
             qty: 2,
             course_code: ""
         }]};
+
+	    $scope.schools = 
+	    [{
+	        name: 'University of Waterloo',
+	    },
+	    {
+	        name: 'University of Toronto',
+	    }, 
+	    {
+	        name: 'Wilfred Laurier University',
+	    },
+	    {
+	        name: 'Ryerson University',
+	    },
+	    {
+	        name: 'University of Calgary',
+	    }];
 
 	    $scope.submit = function() {
 	        if ($scope.text) {
@@ -56,64 +73,6 @@
 			}
 		}
 
-		$scope.submitSchedule = function() {
-			for (var i = 0; i < 24; i++) {
-				for (var j = 1; j < 8; j++) {
-					console.log($scope.scheduleList[i][j]);
-				}
-			}
-		}
-<<<<<<< HEAD
-
-        $scope.eventClick = function(event){
-        $scope.$apply(function(){
-          $scope.alertMessage = (event.title + ' is clicked');
-        });
-    };
-
-      $scope.renderView = function(view){
-        var date = new Date(view.calendar.getDate());
-        $scope.currentDate = date.toDateString();
-        $scope.$apply(function(){
-          $scope.alertMessage = ('Page render with date '+ $scope.currentDate);
-        });
-    };
-
-        $scope.eventSources = [];
-       $scope.uiConfig = {
-          calendar:{
-            height: "100%",
-            editable: true,
-            header:{
-              left: 'month basicWeek basicDay agendaWeek agendaDay',
-              center: 'title',
-              right: 'today prev,next'
-            },
-            dayClick: $scope.alertEventOnClick,
-            eventDrop: $scope.alertOnDrop,
-            eventResize: $scope.alertOnResize,
-            viewRender: $scope.viewRender
-          }
-    };
-
-=======
-        
-      
->>>>>>> 7ee8bc53461ec3add03f67a1e999d9da5e8e34cc
-        $scope.data = {
-            repeatSelect: null,
-            availableOptions: [
-                {id: '1', name: 'University of Waterloo'},
-                {id: '2', name: 'University of Toronto'},
-                {id: '3', name: 'Wilfred Laurier University'}
-        ],
-    }
-        
-        
-    
-
 	}]);
-
-
 
 })();
