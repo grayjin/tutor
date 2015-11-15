@@ -3,14 +3,33 @@
 
 	app.config(function (authProvider) {
 		authProvider.init({
-			domain: 'YOUR_NAMESPACE',
-			clientID: 'YOUR_CLIENT_ID'
+			domain: 'app43881343.auth0.com',
+			clientID: 'XPO2Sy0WgYd5XQPPvFxeGCZLhWlcvQWI'
 		});
 	})
 	app.run(function(auth) {
 	  // This hooks al auth events to check everything as soon as the app starts
 	  auth.hookEvents();
 	});
+
+	
+
+	app.run(function($rootScope, auth, store, jwtHelper, $location) {
+	  // This events gets triggered on refresh or URL change
+	  $rootScope.$on('$locationChangeStart', function() {
+	    var token = store.get('token');
+	    if (token) {
+	      if (!jwtHelper.isTokenExpired(token)) {
+	        if (!auth.isAuthenticated) {
+	          auth.authenticate(store.get('profile'), token);
+	        }
+	      } else {
+	        // Either show the login page or use the refresh token to get a new idToken
+	        $location.path('/');
+	      }
+	    }
+	  })});
+
 	app.config(['$routeProvider', '$locationProvider',
 		function($routeProvider, $locationProvider) {
 			console.log("Loading configs")
