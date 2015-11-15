@@ -1,6 +1,9 @@
 (function() {
-	angular.module('tutorApp').controller('studentCtrl', ['$scope',
-	function($scope) {
+	angular.module('tutorApp').controller('studentCtrl', ['$scope','$compile'
+	function($scope, $compile) {
+
+    
+
     $scope.subject = {
         items: [{
             qty: 2,
@@ -72,24 +75,22 @@
           $scope.text = '';
         }
     };
-    $scope.got0Profileid = function() {
-        var promise = modals.open(
-            "clicked",
-            {
-                message: "Hi, I'm " + tutorList.name + ". I like fishing because then... I can feed baby seals. I also enjoy looking at geodes and watching Jersay Shore in my free time."
-            }
-        );
-        promise.then(
-            function handleResolve( response ) {
-                console.log( "Tutor selected" );
-            },
-            function handleReject( error ) {
-                console.warn( "Alert rejected!" );
-            }
-        );
-    }
-    $scope.got0Profilename = function() {
+    $scope.got0Profile = function() {
+        var popupTemplate = document.createElement("div");
+        popupTemplate.setAttribute("ng-include", "'/Billy.html'");
 
+        // We give the popup a new scope, inherited from the current one.
+        var popupScope = $scope.$new();
+        popupScope.someValue = Math.random();
+        var popupLinker = $compile(popupTemplate);
+        var popupElement = popupLinker(popupScope);
+
+        // popupElement is now a div that contains your template,
+        // fully AngularJS enabled. How you display it as a popup
+        // is up to you.
+        myShowPopupFunction(popupElement);
+        popupScope.$destroy();
+        });
     }
     $scope.addItem = function () {
         $scope.subject.items.push({

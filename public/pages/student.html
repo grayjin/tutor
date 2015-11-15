@@ -41,37 +41,10 @@
         </tr>
         <tr ng-repeat="item in tutorList">
             <td>
-                <a ng-click="got0profileid()">{{item.ID}}</a>
-                <!--<div
-                    bn-modals
-                    ng-show="subview"
-                    class="m-modals"
-                    ng-switch="subview">
-
-                    
-                    <div
-                        ng-switch-when="clicked"
-                        ng-controller="AlertModalController"
-                        class="modal">
-
-                        <p>
-                            {{ message }}
-                        </p>
-
-                        <p>
-                            <a ng-click="close()">Ok, I got it!</a>
-                        </p>
-
-                    
-                        <p>
-                            <a ng-click="jumpToConfirm()" class="jump">Confirm this tutor</a>
-                        </p>
-
-                    </div>
-                <div>-->
+               <a href = "javascript:popup('menu','image')">{{item.ID}}</a>
             </td>
             <td>
-               <a ng-click="got0profilename()">{{item.name}}</a>
+               <a href = "javascript:popup('menu','image')">{{item.name}}</a>
             </td>
             <td ng-repeat="date in item.times">
                 {{date.date}}: {{date.time}}

@@ -2,6 +2,7 @@
 	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
 	function($scope, uiCalendarConfig) {
 		var vm = this;
+		
 		$scope.scheduleList = [];
 
 		$scope.subject = {
