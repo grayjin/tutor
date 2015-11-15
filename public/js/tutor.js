@@ -41,7 +41,9 @@
 	        });
 	    },
 	    $scope.removeItem = function (index) {
-	        $scope.subject.items.splice(index, 1);
+	    	if($scope.subject.items.length > 1){
+	        	$scope.subject.items.splice(index, 1);
+	    	}
 	    }
 
 		$scope.initializeList = function() {

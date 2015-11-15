@@ -11,6 +11,11 @@
 	background-color: #f9f9f9 !important;
 }
 
+.calendar-wrapper {
+	width: 100%;
+	text-align: center;
+}
+
 .scheduler {
 	margin-top: 20px;
 	display:inline-block;

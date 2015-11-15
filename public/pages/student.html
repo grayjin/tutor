@@ -1,4 +1,5 @@
 <div class="content-wrapper">
+    <h1>Start Learning today!</h1>
 	<h2> Course Selection </h2>
 	<div ng-show="displayProfile">
 	    <h1>Profile</h1>
@@ -6,10 +7,9 @@
 	    <button ng-click="displayProfile=!displayProfile">Confirm</button>
         <button bg-click="displayProfile=!displayProfile">Go Back</button>
 	</div>
-	<form ng-submit="submit()" method = "post" action = "">
-        <h4>School: <select ng-model="item.schools" ng-options="p.name for p in schools"></select> </h4>
+	<form class="form-wrapper" ng-submit="submit()" method = "post" action = "">
+        <h4>School: <select ng-model="item.schools" ng-options="p.name for p in schools" required></select> </h4>
     <table class="class-select">
-        <tr></tr>
         <tr>
             <th>Course Name</th>
             <th>Course Code</th>
@@ -25,36 +25,26 @@
             <td>[<a href ng:click="removeItem($index)">X</a>]</td>
         </tr>
         <tr>
-            <td><a href ng:click="addItem()" class="btn btn-small">add Course</a>
+            <td><a href ng:click="addItem()" class="btn btn-small">Add another course</a>
             </td>
         </tr>
     </table>
-	  <input type="submit" class="btn submit" id="submit" value="Submit" />
-	</form>
+    <div><input type="submit" class="btn submit" id="submit" value="Find Tutors"></div>
+    </form>
 
-<div>
-    <h2>Tutor </h2>
-    <table class="class-select">
-        <tr>
-            <th>ID</th>
-            <th>Tutor Name</th>
-            <th>Timing</th>
-        </tr>
-        <tr ng-repeat="item in tutorList">
-            <td>
-               <a ng-click="$parent.displayProfile=!$parent.displayProfile">{{item.ID}}</a>
-                
-            </td>
-            <td>
-               <a ng-click="$parent.displayProfile=!$parent.displayProfile">{{item.name}}</a>
-            </td>
-            <td ng-repeat="date in item.times">
-                {{date.date}}: {{date.time}}
-            </td>
-        </tr>
-    </table>
-        <input type = "submit" class = "btn submit" id="submit" value="Confirm">
-</div>
+    <div>
+        <h2>Results</h2>
+        <div class="class-select">
+            <div class="tutor-panel" ng-repeat="item in tutorList">
+                <div class="tutor-name">
+                   <a ng-click="$parent.displayProfile=!$parent.displayProfile">{{item.name}}</a>
+                </div>
+                <div class="availability" ng-repeat="date in item.times">
+                    {{date.date}} @ {{date.time}}
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </div>

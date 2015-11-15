@@ -1,53 +1,47 @@
 <div class="content-wrapper">
-<h1>Be a tutor!</h1>
-<div>
-	<h2> Course Selection </h2>
-	<form style="tutor-form" ng-submit="submit()" method = "post" action = "">
-     <h4>School : <select ng-model="item.schools" ng-options="p.name for p in schools" required></select> </h4>
-
-    <table style="width:100%" class="class-select">
-        <tr></tr>
-        <tr>
-            <th>Description</th>
-            <th>Course Code</th>
-            <th>Remove Course</th>
-        </tr>
-        <tr ng-repeat="item in subject.items">
-            <td>
-                <input type="text" name:"subject" </input>
-            </td>
-            <td>
-            	<input type="text" name:"course_code"</input>
-            </td>
-            <td>[<a href ng:click="removeItem($index)">X</a>]</td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-        </tr>
-    </table>
+    <h1>Be a tutor!</h1>
     <div>
+       <h2> Course Selection </h2>
+       <form style="tutor-form" class="form-wrapper" ng-submit="submit()" method = "post" action = "">
+           <h4>School : <select ng-model="item.schools" ng-options="p.name for p in schools" required></select> </h4>
 
-     <a ng-click="addItem()" class="btn">add Course</a>
- </div>
+           <table style="width:100%" class="class-select">
+            <tr>
+                <th>Description</th>
+                <th>Course Code</th>
+                <th>Remove Course</th>
+            </tr>
+            <tr ng-repeat="item in subject.items">
+                <td>
+                    <input type="text" name:"subject" </input>
+                </td>
+                <td>
+                   <input type="text" name:"course_code"</input>
+               </td>
+               <td>[<a href ng:click="removeItem($index)">X</a>]</td>
+           </tr>
+       </table>
+       <div>
+
+           <a ng-click="addItem()" class="btn">Add another course</a>
+       </div>
+   <div class="calendar-wrapper">
+
+    <table border="1" class="scheduler" ng-init="initializeList()">
+       <tr>
+          <th ng-repeat="item in dateArray track by $index">{{item}}</th>
+      </tr>
+
+      <tr ng-repeat="day in scheduleList track by $index" ng-init="dayVal = $index;">
+          <td ng-repeat="time in day track by $index" ng-class="getScheduleType(time)" ng-click="toggleSection(dayVal, $index)">
+             {{time}}
+         </td>
+     </tr>
+
+
+ </table>
 </div>
-<div>
-
-<table border="1" class="scheduler" ng-init="initializeList()">
-	<tr>
-		<th ng-repeat="item in dateArray track by $index">{{item}}</th>
-	</tr>
-
-	<tr ng-repeat="day in scheduleList track by $index" ng-init="dayVal = $index;">
-		<td ng-repeat="time in day track by $index" ng-class="getScheduleType(time)" ng-click="toggleSection(dayVal, $index)">
-			{{time}}
-		</td>
-	</tr>
-
-
-</table>
-	</div>
-	  <input type="submit" class="btn submit" id="submit" value="Submit" />
-	</form>
+<input type="submit" class="btn submit" id="submit" value="Submit" />
+</form>
 </div>
 </div>

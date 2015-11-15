@@ -1,0 +1,44 @@
+.class-select{
+	position: relative;
+	width:100%;
+}
+
+.tutor-panel{
+	padding:10px;
+	width:100%;
+	background-color:#f0f0f0;
+	margin-bottom: 10px;
+}
+
+.availability,
+.tutor-name{
+	display:inline-block;
+	background-color: #268dd5;
+	padding-left: 20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin:10px;
+}
+
+.availability:hover,
+.tutor-name:hover{
+	cursor: pointer;
+}
+
+.tutor-name:hover{
+	background-color: #267bb7;
+}
+
+.availability:hover{
+	background-color: #ff7200;
+}
+
+.availability,
+.tutor-name a{
+	color:white !important;
+}
+
+.availability{
+	background-color: #ff8400;
+}

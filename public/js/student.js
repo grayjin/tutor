@@ -22,6 +22,27 @@
                 },
                 {   "date":"12/32/11",
                     "time":"15:00"
+                },
+                {
+                    "date":"15/23/13",
+                    "time":"12:00"
+                },
+                {   "date":"12/32/11",
+                    "time":"15:00"
+                },
+                {
+                    "date":"15/23/13",
+                    "time":"12:00"
+                },
+                {   "date":"12/32/11",
+                    "time":"15:00"
+                },
+                {
+                    "date":"15/23/13",
+                    "time":"12:00"
+                },
+                {   "date":"12/32/11",
+                    "time":"15:00"
                 }
             ]
         },
@@ -87,7 +108,9 @@
         });
     },
     $scope.removeItem = function (index) {
-        $scope.subject.items.splice(index, 1);
+        if($scope.subject.items.length > 1){
+            $scope.subject.items.splice(index, 1);
+        }
     }
 	}]);
 })();
