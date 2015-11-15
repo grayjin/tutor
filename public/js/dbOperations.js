@@ -1,6 +1,6 @@
 module.exports = {
     
-  
+  console.log('hello'),
     
     courseQuery: function(req,res){},
     
