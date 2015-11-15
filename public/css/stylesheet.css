@@ -14,6 +14,7 @@ html {
 }
 
 a {
+	transition: all 0.3s ease;
 	text-decoration: none !important;
 }
 
@@ -22,10 +23,7 @@ a {
 	margin-top:70px;
 	text-align: center;
 	padding-right: 10%;
-}
-
-.wrapper {
-	min-height: 90vh;
+	min-height: 91.3vh;
 	background-color: #268dd5;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -34,7 +32,7 @@ a {
 }
 
 .content-wrapper{
-	min-height: 90vh;
+	min-height: 91.3vh;
 	padding-left:5%;
 	padding-right:5%;
 	padding-top: 20px;
@@ -50,6 +48,7 @@ p{
 }
 
 .btn{
+	margin-top:10px;
 	color:white;
 	background-color: #ff8400;
 	border-radius: 0;
@@ -71,7 +70,6 @@ p{
 	border-width: 2px;
 	border-style: solid;
 	border-color:white;
-	transition: all 0.3s ease;
 	margin-left:20px;
 	margin-right:20px;
 }
@@ -105,6 +103,10 @@ p{
 
 /************* navbar *******************/
 
+.navbar-header{
+	padding-left:1%;
+}
+
 .navbar-brand{
 	margin-top: 10px;
 	font-family:'Pacifico', Helvetica;
@@ -117,7 +119,7 @@ li a{
 
 .navbar-nav {
 	height:70px;
-	padding-left: 10%;
+	padding-right: 2%;
 }
 
 .navbar-nav > li >a{

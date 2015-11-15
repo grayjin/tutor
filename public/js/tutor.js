@@ -1,6 +1,6 @@
 (function() {
-	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
-	function($scope, uiCalendarConfig) {
+	angular.module('tutorApp').controller('tutorCtrl', ['$scope','$http',
+	function($scope, $http, uiCalendarConfig) {
 		var vm = this;
 		$scope.scheduleList = [];
 
@@ -63,6 +63,7 @@
 				}
 			}
 		}
+<<<<<<< HEAD
 
         $scope.eventClick = function(event){
         $scope.$apply(function(){
@@ -95,6 +96,10 @@
           }
     };
 
+=======
+        
+      
+>>>>>>> 7ee8bc53461ec3add03f67a1e999d9da5e8e34cc
         $scope.data = {
             repeatSelect: null,
             availableOptions: [
@@ -102,7 +107,10 @@
                 {id: '2', name: 'University of Toronto'},
                 {id: '3', name: 'Wilfred Laurier University'}
         ],
-    };
+    }
+        
+        
+    
 
 	}]);
 

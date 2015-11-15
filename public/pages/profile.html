@@ -1,4 +1,5 @@
-<div class="content-wrapper" style="text-align:left" ng-init="initializeProfile()">
+<div class="content-wrapper" style="text-align:left;" ng-init="initializeProfile()">
+	<div style="margin-top:30px">
 	<img class="profile-picture pull-left" src="{{auth.profile.picture}}"/>
 	<div class="profile-wrapper" ng-hide="getEditMode()">
 	<h2 style="margin-top:0">{{auth.profile.name}}</h2>
@@ -25,4 +26,5 @@
 		<button class="btn" style="margin-right: 10px" ng-click="cancelEdit()">Cancel</button>
   		<input class="btn pull-right" type="submit" id="submit" value="Submit"/>
 	</form>
+	</div>
 </div>
