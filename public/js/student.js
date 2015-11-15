@@ -1,6 +1,6 @@
 (function() {
-	angular.module('tutorApp').controller('studentCtrl', ['$scope',
-	function($scope) {
+	angular.module('tutorApp', ["ngAnimate"]).controller('studentCtrl', ['$scope',
+	function($scope, modals) {
     $scope.subject = {
         items: [{
             qty: 2,
@@ -72,8 +72,24 @@
           $scope.text = '';
         }
     };
-    $scope.got0Profile = function() {
-        
+    $scope.got0Profileid = function() {
+        var promise = modals.open(
+            "clicked",
+            {
+                message: "Hi, I'm " + tutorList.name + ". I like fishing because then... I can feed baby seals. I also enjoy looking at geodes and watching Jersay Shore in my free time."
+            }
+        );
+        promise.then(
+            function handleResolve( response ) {
+                console.log( "Tutor selected" );
+            },
+            function handleReject( error ) {
+                console.warn( "Alert rejected!" );
+            }
+        );
+    }
+    $scope.got0Profilename = function() {
+
     }
     $scope.addItem = function () {
         $scope.subject.items.push({

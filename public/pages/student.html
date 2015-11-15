@@ -1,7 +1,7 @@
 <div>
 	<h2> Course Selection </h2>
 	<form ng-submit="submit()" method = "post" action = "">
-        <h5>School</h5>
+        <h4>School</h4>
     <table style="width:100%" class="class-select">
         <tr></tr>
         <tr>
@@ -41,10 +41,37 @@
         </tr>
         <tr ng-repeat="item in tutorList">
             <td>
-                {{item.ID}}
+                <a ng-click="got0profileid()">{{item.ID}}</a>
+                <!--<div
+                    bn-modals
+                    ng-show="subview"
+                    class="m-modals"
+                    ng-switch="subview">
+
+                    
+                    <div
+                        ng-switch-when="clicked"
+                        ng-controller="AlertModalController"
+                        class="modal">
+
+                        <p>
+                            {{ message }}
+                        </p>
+
+                        <p>
+                            <a ng-click="close()">Ok, I got it!</a>
+                        </p>
+
+                    
+                        <p>
+                            <a ng-click="jumpToConfirm()" class="jump">Confirm this tutor</a>
+                        </p>
+
+                    </div>
+                <div>-->
             </td>
             <td>
-               <a href id:"~/profile.html" ng:click=>{{item.name}}</a>
+               <a ng-click="got0profilename()">{{item.name}}</a>
             </td>
             <td ng-repeat="date in item.times">
                 {{date.date}}: {{date.time}}
