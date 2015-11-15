@@ -103,6 +103,8 @@
         name: 'University of Calgary',
     }];
 
+
+    // This function makes a query based on scope.subject and returns all the tutors and their availabilites and stores them into the tutorList object with the given keys as per example
     $scope.submit = function() {
         if ($scope.text) {
           $scope.table.push(this.text);
@@ -132,6 +134,7 @@
         return $scope.results;
     }
 
+    // called when button is clicked, retrieve profile location and summary based on given ID
     $scope.toggleDisplay = function(id, name) {
         $scope.profileName = name;
         $scope.profileLocation = "University of Waterloo"
@@ -152,6 +155,7 @@
         return $scope.confirm;
     }
 
+    // sets global variables to what we need to save to database for confirmation of appointment
     $scope.openConfirm = function(id, name, date, time) {
         $scope.chosenName = name;
         $scope.chosenTime = time;
@@ -164,6 +168,7 @@
         $scope.confirm = false;
     }
 
+    // send global variables to the database
     $scope.confirmSelections = function () {
         console.log("I have confirmed my selections");
         $scope.confirm = false;
