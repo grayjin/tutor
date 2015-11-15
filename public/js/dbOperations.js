@@ -19,13 +19,16 @@ module.exports = {
     
     availabilityQuery: function(req,res){},
     
-    registerUpdate: function(req,res){
+     
+    registerUpdateStudent: function(req,res){
     
+        console.log('goodbye world');
+        
      var pg = require('pg');           
-        var conString = process.env.DATABASE_URL || "postgres://tzhfypihrazkoz:Llg9l7d_ULPBPxCk1HREaJoQwc@ec2-54-197-241-239.compute-1.amazonaws.com:5432/d8o7r39dmedqhr";
+        var conString = process.env.DATABASE_URL || "postgres://tzhfypihrazkoz:Llg9l7d_ULPBPxCk1HREaJoQwc@ec2-54-197-241-239.compute-1.amazonaws.com:5432/d8o7r39dmedqhr?ssl=true";
         var client = new pg.Client(conString);
         client.connect();         
-        var query = client.query('INSERT INTO TUTORS (TUTORID, NAME, LOCID) VALUES ('+req.query.id+','+req.query.name+',5); INSERT INTO STUDENTS (STUDENTID, NAME, LOCID) VALUES ('+req.query.id+','+req.query.name+',5);', function(err,result){
+        var query = client.query("INSERT INTO STUDENTS (STUDENTID, NAME, LOCID) VALUES ($1, $2, 5);", [req.query.id, req.query.name], function(err,result){
             if(err){
                     res.send(JSON.stringify(err));
                     console.log(err);
@@ -35,12 +38,29 @@ module.exports = {
             res.write('Success');
             res.end();  
         });
+    },
     
     
+    registerUpdateTutor: function(req,res){
     
-    
+        console.log('goodbye world');
+        
+     var pg = require('pg');           
+        var conString = process.env.DATABASE_URL || "postgres://tzhfypihrazkoz:Llg9l7d_ULPBPxCk1HREaJoQwc@ec2-54-197-241-239.compute-1.amazonaws.com:5432/d8o7r39dmedqhr?ssl=true";
+        var client = new pg.Client(conString);
+        client.connect();         
+        var query = client.query("INSERT INTO TUTORS (TUTORID, NAME, LOCID) VALUES ($1, $2, 5);", [req.query.id, req.query.name], function(err,result){
+            if(err){
+                    res.send(JSON.stringify(err));
+                    console.log(err);
+        }});    
+        query.on("end", function (result) {          
+            client.end(); 
+            res.write('Success');
+            res.end();  
+        });
     }
-    
+   
     
     
     

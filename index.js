@@ -7,6 +7,13 @@ app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 
 app.set('port', (process.env.PORT || 5000));
 
+app.post('/', function(req,res){
+    console.log('hello world');
+	dbOperations.registerUpdateTutor(req,res);
+   
+});
+
+
 app.use(express.static(__dirname + '/public'));
 
 app.all('/*', function(req, res, next) {
@@ -14,9 +21,6 @@ app.all('/*', function(req, res, next) {
     res.sendFile('/public/index.html', { root: __dirname });
 });
 
-app.post('/', function(req,res){
-	dbOperations.registerUpdate(req,res);
-});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
