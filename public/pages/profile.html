@@ -11,15 +11,17 @@
 	</div>
 
 	<form class="profile-wrapper" ng-show="getEditMode()" ng-submit="submit()">
+	<div>
 	<h2 style="margin-top:0">{{auth.profile.name}}</h2>
 		<h4>School: 
 		<select name="input" ng-model="profileLocation" required>
 			<option ng-repeat="option in availableOptions" value="{{$index}}">{{option}}</option>
     	</select></h4>
     	<h4>Summary: </h4>
-    	<textarea ng-model="profileSummary" rows="6" cols="60">
+    	<textarea ng-model="profileSummary" rows="6">
     		{{profileSummary}}
 		</textarea>
+	</div>
 		<button class="btn" style="margin-right: 10px" ng-click="cancelEdit()">Cancel</button>
   		<input class="btn pull-right" type="submit" id="submit" value="Submit"/>
 	</form>

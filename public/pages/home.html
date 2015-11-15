@@ -1,2 +1,7 @@
-<h1>Name is: {{auth.profile.name}}</h1>
-<h1>ID: {{auth.profile.user_id}}</h1>
+<div class="home-wrapper">
+	<h1 class="logo" style="font-size:60px">Welcome to </h1>
+	<h1 class="logo"><span style="color:white">Tutor</span><span style="color:#ff8400">Us</span></h1>
+	<button class="btn home-btn" ng-hide="loggedIn" ng-click="login()">Get Started</button>
+	<button class="btn home-btn" ng-show="loggedIn"><a href="/tutor">Start Tutoring</a></button>
+	<button class="btn home-btn" ng-show="loggedIn"><a href="/student">Start Learning</a></button>
+</div>

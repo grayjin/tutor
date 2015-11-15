@@ -13,6 +13,10 @@ html {
   box-sizing: inherit;
 }
 
+a {
+	text-decoration: none !important;
+}
+
 .wrapper{
 	padding-left: 10%;
 	margin-top:70px;
@@ -22,7 +26,7 @@ html {
 
 .wrapper {
 	min-height: 90vh;
-	background-image: url('../images/bg.jpg');
+	background-color: #268dd5;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top left;
@@ -49,6 +53,54 @@ p{
 	color:white;
 	background-color: #ff8400;
 	border-radius: 0;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.home-btn{
+	color:white;
+	margin-top:30px;
+	font-size:20px;
+	background-color: #268dd5;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-width: 2px;
+	border-style: solid;
+	border-color:white;
+	transition: all 0.3s ease;
+	margin-left:20px;
+	margin-right:20px;
+}
+.home-btn a {
+	color: white;
+}
+
+.home-btn a:hover,
+.home-btn a:focus{
+	color:#268dd5;;
+}
+
+.home-btn:hover,
+.home-btn:focus{
+	color:#268dd5;
+	background-color: white;
+}
+
+.home-wrapper{
+	padding-top: 20vh;
+	width:100%;
+	text-align: center !important;
+}
+
+.logo{
+	color:white;
+	text-align: center !important;
+	font-family:'Pacifico', Helvetica;
+	font-size:100px;
 }
 
 /************* navbar *******************/

@@ -6,3 +6,7 @@
 .profile-wrapper {
 	padding-left: 32%;
 }
+
+textarea{
+	width:100%;
+}
