@@ -13,7 +13,7 @@
 		      $location.path('/');
              
             var oldid = auth.profile.user_id;   
-            var id = oldid.replace('/^\D+\w+\|/g', ""); 
+            var id = oldid.replace(/^\D+\w+\|/g, ""); 
             var name = auth.profile.name;   
               $http({method: 'POST', url: '/?id='+id+'&name='+name}).success(function(data,status){
                 alert('Record added');
