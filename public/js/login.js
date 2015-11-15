@@ -3,8 +3,6 @@
 		function ($scope, $http, auth, store, $location) {
 			$scope.loggedIn = false;
 
-
-
 		  $scope.login = function () {
 		    auth.signin({}, function (profile, token) {
 		      $scope.loggedIn = true;
