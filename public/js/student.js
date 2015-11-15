@@ -1,5 +1,5 @@
 (function() {
-	angular.module('tutorApp', ["ngAnimate"]).controller('studentCtrl', ['$scope',
+	angular.module('tutorApp').controller('studentCtrl', ['$scope',
 	function($scope) {
     $scope.subject = {
         items: [{
