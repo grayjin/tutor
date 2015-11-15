@@ -1,6 +1,15 @@
 <div>
 	<h2> Course Selection </h2>
-	<form ng-submit="submit()" method = "post" action = "">
+	<div ng-show="displayProfile" style="background-color:white;
+    position:absolute;
+    width:80%;
+    height:80%;
+    top:0px;
+    z-index:1000;">
+	    <h1 style="padding-top:80px;padding-left:30px;">Wat the fuck</h1>
+	    <button ng-click="displayProfile=!displayProfile" style="position:relative;">Click here for death</button>
+	</div>
+=	<form ng-submit="submit()" method = "post" action = "">
         <h4>School</h4>
     <table style="width:100%" class="class-select">
         <tr></tr>
@@ -15,10 +24,10 @@
         </tr>
         <tr ng-repeat="item in subject.items">
             <td>
-                <input type="text" name:"subject" </input>
+                <input type="text" name="subject"> 
             </td>
             <td>
-            	<input type="text" name:"course_code"</input>
+            	<input type="text" name="course_code">
             </td>
             <td>[<a href ng:click="removeItem($index)">X</a>]</td>
         </tr>
@@ -29,10 +38,9 @@
     </table>
 	  <input type="submit" class="btn submit" id="submit" value="Submit" />
 	</form>
-</div>
+
 <div>
     <h2>Tutor </h2>
-    <form ng-submit="submit()" method = "post" action = "">
     <table class="class-select">
         <tr>
             <th>ID</th>
@@ -41,19 +49,11 @@
         </tr>
         <tr ng-repeat="item in tutorList">
             <td>
-               <a ng-click="got0profile()">{{item.ID}}</a>
-               <div>
-                 
-                  <div ng-show="checked">
-                    Hi I'm Billy. I like Potatoes. I like fishing for baby seals. I fish for fish to feed baby seals.
-                  </div>
-                </div>
-                <div>
-                    <div ng-hide="checked"></div>
-                </div>
+               <a ng-click="$parent.displayProfile=!$parent.displayProfile">{{item.ID}}</a>
+                
             </td>
             <td>
-               <a ng-click="got0profile()">{{item.name}}</a>
+               <a ng-click="$parent.displayProfile=!$parent.displayProfile">{{item.name}}</a>
             </td>
             <td ng-repeat="date in item.times">
                 {{date.date}}: {{date.time}}
@@ -61,8 +61,11 @@
         </tr>
     </table>
         <input type = "submit" class = "btn submit" id="submit" value="Confirm">
-    </form>
 </div>
+
+
+</div>
+
 
 
 

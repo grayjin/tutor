@@ -1,7 +1,6 @@
 (function() {
 	angular.module('tutorApp').controller('studentCtrl', ['$scope','$compile',
 	function($scope, $compile) {
-    Boolean checked = False;
     
 
 

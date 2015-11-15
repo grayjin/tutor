@@ -74,7 +74,6 @@
 			}
 		}
 
-<<<<<<< HEAD
 		$scope.submitSchedule = function() {
 			for (var i = 0; i < 24; i++) {
 				for (var j = 1; j < 8; j++) {
@@ -127,8 +126,7 @@
         
     
 
-=======
->>>>>>> d1348a95cd988b0df55a89d3a7de4ecc11576c57
+
 	}]);
 
 })();
