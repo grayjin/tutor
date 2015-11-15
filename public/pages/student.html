@@ -41,10 +41,19 @@
         </tr>
         <tr ng-repeat="item in tutorList">
             <td>
-               <a href = "javascript:popup('menu','image')">{{item.ID}}</a>
+               <a ng-click="got0profile()">{{item.ID}}</a>
+               <div>
+                 
+                  <div ng-show="checked">
+                    Hi I'm Billy. I like Potatoes. I like fishing for baby seals. I fish for fish to feed baby seals.
+                  </div>
+                </div>
+                <div>
+                    <div ng-hide="checked"></div>
+                </div>
             </td>
             <td>
-               <a href = "javascript:popup('menu','image')">{{item.name}}</a>
+               <a ng-click="got0profile()">{{item.name}}</a>
             </td>
             <td ng-repeat="date in item.times">
                 {{date.date}}: {{date.time}}

@@ -64,7 +64,7 @@
 				}
 			}
 		}
-<<<<<<< HEAD
+
 
         $scope.eventClick = function(event){
         $scope.$apply(function(){
@@ -97,10 +97,6 @@
           }
     };
 
-=======
-        
-      
->>>>>>> 7ee8bc53461ec3add03f67a1e999d9da5e8e34cc
         $scope.data = {
             repeatSelect: null,
             availableOptions: [
