@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="tutorApp">
+<html ng-app="tutorApp" ng-controller="mainCtrl">
 
 <head>
 	<title>TutorUs</title>
@@ -20,15 +20,13 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right" ng-hide="loggedIn">
-					<li><a href="/">Home</a></li>
 					<li><a href="" ng-click="login()">Login</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" ng-show="loggedIn">
-					<li><a href="/">Home</a></li>
-					<li><a href="/student">Student</a></li> 
-					<li><a href="/tutor">Tutor</a></li> 
-					<li><a href="/profile">Profile</a></li>
-					<li><a href="" ng-click="logout()" value="Log out">Logout</a></li>
+					<li><a href="/profile" ng-class="{'active':getCurrentPage('profile')}">Profile</a></li>
+					<li><a href="/student" ng-class="{'active':getCurrentPage('student')}">Student</a></li> 
+					<li><a href="/tutor" ng-class="{'active':getCurrentPage('tutor')}">Tutor</a></li> 
+					<li><a href="/" ng-click="logout()" value="Log out">Logout</a></li>
 				</ul>
 			</div>
 		</div>
