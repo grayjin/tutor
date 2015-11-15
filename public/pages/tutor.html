@@ -1,26 +1,18 @@
 <div class="content-wrapper">
 <h1>Be a tutor!</h1>
-
-<form ng-submit="submit()" method="post" action = "">
-
-<div style=" padding: 10px;padding-bottom: 20px;margin-left:30px;">
-
-<label for="schoolSelect" class="school-selector">School </label>
-<select name="schoolSelect" id="schoolSelect" ng-model="data.schoolSelect">
-      <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
-</select>
-
-</div>
-
 <div>
-    <table class="class-select">
+	<h2> Course Selection </h2>
+	<form style="tutor-form" ng-submit="submit()" method = "post" action = "">
+     <h4>School : <select ng-model="item.schools" ng-options="p.name for p in schools"></select> </h4>
+
+    <table style="width:100%" class="class-select">
+        <tr></tr>
         <tr>
             <th>Description</th>
             <th>Course Code</th>
             <th>Remove Course</th>
         </tr>
-        <tr></tr>
-        <tr ng:repeat="item in subject.items">
+        <tr ng-repeat="item in subject.items">
             <td>
                 <input type="text" name:"subject" </input>
             </td>
@@ -29,8 +21,13 @@
             </td>
             <td>[<a href ng:click="removeItem($index)">X</a>]</td>
         </tr>
+        <tr>
+            <td>
+            </td>
+        </tr>
     </table>
     <div>
+
      <button ng-click="addItem()" class="btn">add Course</button>
  </div>
 </div>
@@ -67,9 +64,9 @@
 
 
 </table>-->
+    <a ng:click="addItem()" class="btn">add Course</a>
+	</div>
+	  <input type="submit" class="btn submit" id="submit" value="Submit" />
+	</form>
 </div>
- <input type="submit" id="submit" class="btn" value="Submit" ng-click="submitSchedule()"/>
-</form>
 </div>
-
-

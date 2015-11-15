@@ -1,6 +1,6 @@
 (function() {
-	angular.module('tutorApp').controller('tutorCtrl', ['$scope','$http',
-	function($scope, $http, uiCalendarConfig) {
+	angular.module('tutorApp').controller('tutorCtrl', ['$scope',
+	function($scope) {
 		var vm = this;
 		
 		$scope.scheduleList = [];
@@ -10,6 +10,23 @@
             qty: 2,
             course_code: ""
         }]};
+
+	    $scope.schools = 
+	    [{
+	        name: 'University of Waterloo',
+	    },
+	    {
+	        name: 'University of Toronto',
+	    }, 
+	    {
+	        name: 'Wilfred Laurier University',
+	    },
+	    {
+	        name: 'Ryerson University',
+	    },
+	    {
+	        name: 'University of Calgary',
+	    }];
 
 	    $scope.submit = function() {
 	        if ($scope.text) {
@@ -57,6 +74,7 @@
 			}
 		}
 
+<<<<<<< HEAD
 		$scope.submitSchedule = function() {
 			for (var i = 0; i < 24; i++) {
 				for (var j = 1; j < 8; j++) {
@@ -109,8 +127,8 @@
         
     
 
+=======
+>>>>>>> d1348a95cd988b0df55a89d3a7de4ecc11576c57
 	}]);
-
-
 
 })();

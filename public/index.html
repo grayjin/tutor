@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html ng-app="tutorApp" ng-app="myCalendarApp" id="top">
-=======
-<html ng-app="tutorApp" ng-controller="mainCtrl">
->>>>>>> 7ee8bc53461ec3add03f67a1e999d9da5e8e34cc
+<html ng-app="tutorApp" ng-app="myCalendarApp" id="top" ng-controller="mainCtrl">
 
 <head>
 	<title>TutorUs</title>
@@ -13,8 +9,8 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.print.css">
 	
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
-	<link rel="stylesheet" type="text/css" href="css/tutor.css"/>
 	<link rel="stylesheet" type="text/css" href="css/profile.css"/>
+	<link rel="stylesheet" type="text/css" href="css/tutor.css"/>
 	<!-- Latest compiled and minified CSS -->
 	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<base href="/"></base>
@@ -31,18 +27,10 @@
 					<li><a href="" ng-click="login()">Login</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" ng-show="loggedIn">
-<<<<<<< HEAD
-					<li><a href="/">Home</a></li>
-					<li><a href="/student">Student</a></li>
-					<li><a href="/tutor">Tutor</a></li>
-					<li><a href="/profile">Profile</a></li>
-					<li><a href="" ng-click="logout()" value="Log out">Logout</a></li>
-=======
 					<li><a href="/profile" ng-class="{'active':getCurrentPage('profile')}">Profile</a></li>
 					<li><a href="/student" ng-class="{'active':getCurrentPage('student')}">Student</a></li> 
 					<li><a href="/tutor" ng-class="{'active':getCurrentPage('tutor')}">Tutor</a></li> 
 					<li><a href="/" ng-click="logout()" value="Log out">Logout</a></li>
->>>>>>> 7ee8bc53461ec3add03f67a1e999d9da5e8e34cc
 				</ul>
 			</div>
 		</div>
@@ -88,11 +76,8 @@
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
    	<script type="text/javascript" src="./node_modules/angular-ui-calendar/src/calendar.js"></script>
 
-<<<<<<< HEAD
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.print.css">
-=======
->>>>>>> 7ee8bc53461ec3add03f67a1e999d9da5e8e34cc
 
 </body>
 
