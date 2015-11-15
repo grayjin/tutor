@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="tutorApp">
+<html ng-app="tutorApp" ng-app="myCalendarApp" id="top">
 
 <head>
 	<title>TutorUs</title>
@@ -25,8 +25,8 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right" ng-show="loggedIn">
 					<li><a href="/">Home</a></li>
-					<li><a href="/student">Student</a></li> 
-					<li><a href="/tutor">Tutor</a></li> 
+					<li><a href="/student">Student</a></li>
+					<li><a href="/tutor">Tutor</a></li>
 					<li><a href="/profile">Profile</a></li>
 					<li><a href="" ng-click="logout()" value="Log out">Logout</a></li>
 				</ul>
@@ -35,7 +35,7 @@
 	</nav>
 
 
-	<!--Main page --> 
+	<!--Main page -->
 	<div class="wrapper">
 		<ng-view></ng-view>
 	</div>
@@ -67,14 +67,14 @@
 	<script type="text/javascript" src="js/tutor.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
 	<script type="text/javascript" src="js/test.js"></script>
-	
+
    <script type="text/javascript" src="./node_modules/moment/min/moment-with-locales.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/en-ca.js"></script>
 
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
    	<script type="text/javascript" src="./node_modules/angular-ui-calendar/src/calendar.js"></script>
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css">	
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.print.css">
 
 </body>

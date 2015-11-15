@@ -9,7 +9,7 @@
             qty: 2,
             course_code: ""
         }]};
-        
+
 	    $scope.submit = function() {
 	        if ($scope.text) {
 	          $scope.table.push(this.text);
@@ -63,11 +63,25 @@
 				}
 			}
 		}
-        
+
+        $scope.eventClick = function(event){
+        $scope.$apply(function(){
+          $scope.alertMessage = (event.title + ' is clicked');
+        });
+    };
+
+      $scope.renderView = function(view){
+        var date = new Date(view.calendar.getDate());
+        $scope.currentDate = date.toDateString();
+        $scope.$apply(function(){
+          $scope.alertMessage = ('Page render with date '+ $scope.currentDate);
+        });
+    };
+
         $scope.eventSources = [];
        $scope.uiConfig = {
           calendar:{
-            height: 950,
+            height: "100%",
             editable: true,
             header:{
               left: 'month basicWeek basicDay agendaWeek agendaDay',
@@ -76,10 +90,11 @@
             },
             dayClick: $scope.alertEventOnClick,
             eventDrop: $scope.alertOnDrop,
-            eventResize: $scope.alertOnResize
+            eventResize: $scope.alertOnResize,
+            viewRender: $scope.viewRender
           }
     };
-      
+
         $scope.data = {
             repeatSelect: null,
             availableOptions: [
@@ -90,7 +105,7 @@
     };
 
 	}]);
-    
-    
+
+
 
 })();
