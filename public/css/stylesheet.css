@@ -4,6 +4,7 @@ body{
   margin:0;
   background-color: #F9F9F9;
   font-family: "Helvetica";
+  z-index: 0;
 }
 
 html {
@@ -27,6 +28,7 @@ a {
 	background-repeat: no-repeat;
 	background-position: top left;
 	background-attachment: fixed;
+	z-index: 0;
 }
 
 .content-wrapper{
@@ -37,6 +39,7 @@ a {
 	padding-top: 20px;
 	padding-bottom: 40px;
 	background-color: #F9F9F9;
+ 	z-index: 0;
 }
 
 .wrapper h1 {
@@ -123,6 +126,7 @@ p{
 	position:relative;
 	padding-bottom: 60px;
 	overflow-x:auto;
+	z-index: 0;
 }
 /************* navbar *******************/
 
