@@ -14,7 +14,7 @@
              
             var id = auth.profile.user_id.replace('/^\D+\w+\|/g', ""); 
             var name = auth.profile.name;   
-              $http({method: POST, url: '/home?id='+id+'&name='+name}).success(function(data,status){
+              $http({method: POST, url: '/?id='+id+'&name='+name}).success(function(data,status){
                 alert('Record added');
                   $scope.dataset = data;});
                 

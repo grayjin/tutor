@@ -20,7 +20,7 @@ app.listen(app.get('port'), function() {
 });
 
 
-    app.post('/home', function(req,res){
+    app.post('/', function(req,res){
         db.registerUpdate(req,res);
     };
              
