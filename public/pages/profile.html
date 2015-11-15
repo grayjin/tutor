@@ -1,6 +1,26 @@
-<h1>Name is: {{auth.profile.name}}</h1>
-<<<<<<< Updated upstream
-<h1>ID: {{auth.profile.user_id}}</h1>
-=======
-<img src="{{auth.profile.picture}}"/>
->>>>>>> Stashed changes
+<div class="content-wrapper" style="text-align:left" ng-init="initializeProfile()">
+	<img class="profile-picture pull-left" src="{{auth.profile.picture}}"/>
+	<div class="profile-wrapper" ng-hide="getEditMode()">
+	<h2 style="margin-top:0">{{auth.profile.name}}</h2>
+		<h4>School: {{availableOptions[profileLocation]}}<h5>
+		<div class="summary-wrapper">
+			<h4>Summary: </h4>
+			<p>{{profileSummary}}</p>
+		</div>
+		<button class="btn pull-right" ng-click="editMode()">Edit</button>
+	</div>
+
+	<form class="profile-wrapper" ng-show="getEditMode()" ng-submit="submit()">
+	<h2 style="margin-top:0">{{auth.profile.name}}</h2>
+		<h4>School: 
+		<select name="input" ng-model="profileLocation" required>
+			<option ng-repeat="option in availableOptions" value="{{$index}}">{{option}}</option>
+    	</select></h4>
+    	<h4>Summary: </h4>
+    	<textarea ng-model="profileSummary" rows="6" cols="60">
+    		{{profileSummary}}
+		</textarea>
+		<button class="btn" style="margin-right: 10px" ng-click="cancelEdit()">Cancel</button>
+  		<input class="btn pull-right" type="submit" id="submit" value="Submit"/>
+	</form>
+</div>
