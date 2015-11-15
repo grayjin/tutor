@@ -1,0 +1,52 @@
+module.exports = {
+    
+  
+    
+    courseQuery: function(req,res){},
+    
+    courseJunctionUpdate: function(req,res){},
+    
+    studentProfile: function(req,res){},
+    
+    tutorProfile: function(req,res){},
+    
+    languageJunctionUpdate: function(req,res){},
+    
+    locationQuery: function(req,res){},
+    
+    languageQuery: function(req,res){},
+    
+    availabilityUpdate: function(req,res){},
+    
+    availabilityQuery: function(req,res){},
+    
+    registerUpdate: function(req,res){
+    
+     var pg = require('pg');           
+        var conString = process.env.DATABASE_URL;
+        var client = new pg.Client(conString);
+        client.connect();         
+        var query = client.query('UPDATE TABLE TUTORS (TUTORID, NAME, LOCID) VALUES ('"+req.query.id+"','"+req.query.name+"',5); UPDATE TABLE STUDENTS (STUDENTID, NAME, LOCID) VALUES ('"+req.query.id+"','"+req.query.name+"',5);');    
+        query.on("end", function (result) {          
+            client.end(); 
+            res.write('Success');
+            res.end();  
+        });
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+    
+    
+    
+    
+    

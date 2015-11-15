@@ -6,12 +6,22 @@
 		  $scope.login = function () {
 		    auth.signin({}, function (profile, token) {
 		      $scope.loggedIn = true;
-
   				$scope.auth = auth;
 		      // Success callback
 		      store.set('profile', profile);
 		      store.set('token', token);
 		      $location.path('/');
+             
+            var id = auth.profile.user_id.replace('/^\D+\w+\|/g', ""); 
+            var name = auth.profile.name;   
+              $http({method: POST, url: '/home?id='+id+'&name='+name}).success(function(data,status){
+                alert('Record added');
+                  $scope.dataset = data;});
+                
+                
+                
+                
+                
 		    }, function () {
 		      // Error callback
 		    });
